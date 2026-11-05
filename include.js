@@ -13,7 +13,7 @@ async function loadPart(id, url) {
 }
 
 async function loadHeader() {
-  await loadPart('site-header', '/partials/header.html');
+   await loadPart('site-header', 'header.html');
 
   // navbar shadow on scroll
   const navbar = document.querySelector('.navbar');
@@ -36,5 +36,4 @@ async function loadHeader() {
 }
 
 async function loadFooter() {
-  await loadPart('site-footer', '/partials/footer.html');
-}
+   await loadPart('site-footer', 'footer.html');}
