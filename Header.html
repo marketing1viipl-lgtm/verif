@@ -1,42 +1,25 @@
-<!-- ============================================================
-     VERIFITECH - SHARED HEADER  (header.html)
-     ------------------------------------------------------------
-     Loaded automatically into every page that contains:
-         <div data-include="header"></div>
-     by the script  /js/shared.js
-
-     Edit THIS file to change the navbar on the whole site.
-     All links are root-absolute (start with /) so they work
-     from pages in any folder.
-     ============================================================ -->
-
-   <!-- Navigation -->
+<!-- partials/header.html : navbar only (no <html>, <head>, <body>) -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="/index">
+    <a class="navbar-brand" href="/">
       <img
         src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
         alt="Verifitech - Background Verification & Employee Screening Services"
-        title="Verifitech - Enterprise Background Verification Solutions"      
-        width="165px"  height="50%"
+        title="Verifitech - Enterprise Background Verification Solutions"
+        width="165" height="50"
       />
     </a>
 
-    <button
-      class="navbar-toggler border-0 shadow-none"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+      data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <!-- SOLUTIONS Dropdown -->
+
+        <!-- SOLUTIONS -->
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Solutions <span class="dropdown-arrow">▾</span>
@@ -44,9 +27,9 @@
           <div class="dropdown-menu mega-menu">
             <div class="row">
               <div class="col-md-6">
-                <h6 class="dropdown-header">Verification Services</h6>
+                <div class="dropdown-header">Verification Services</div>
                 <a href="/checks/id-verification" class="dropdown-item"><i class="bi bi-person-badge"></i> ID Verification</a>
-                <a href="/checks/address-verification.html" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
+                <a href="/checks/address-verification" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
                 <a href="/checks/employment" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
                 <a href="/checks/education-check" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a>
                 <a href="/checks/court-verification" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a>
@@ -55,12 +38,12 @@
                 <a href="/checks/Directorship-check" class="dropdown-item"><i class="fa-regular fa-user"></i> Directorship</a>
               </div>
               <div class="col-md-6">
-                <h6 class="dropdown-header">Specialized Checks</h6>
+                <div class="dropdown-header">Specialized Checks</div>
                 <a href="/checks/global-check" class="dropdown-item"><i class="bi bi-globe"></i> Global Database Verification</a>
                 <a href="/checks/credit-check" class="dropdown-item"><i class="bi bi-credit-card"></i> Credit Check</a>
                 <a href="/checks/gap-verification" class="dropdown-item"><i class="bi bi-calendar-x"></i> Gap Check</a>
                 <a href="/checks/socialmeidaverification" class="dropdown-item"><i class="bi bi-share"></i> Social Media Verification</a>
-                <a href="/checks/police-clearance" class="dropdown-item"><i class="bi bi-shield-check"></i> Police Clearance</a>
+                <a href="/checks/Police-clearance" class="dropdown-item"><i class="bi bi-shield-check"></i> Police Clearance</a>
                 <a href="/checks/drug-test" class="dropdown-item"><i class="bi bi-capsule"></i> Drug Test Screening</a>
                 <a href="/checks/vendor" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i> Vendor Due Diligence</a>
                 <a href="/checks/passport-verification" class="dropdown-item"><i class="fa-solid fa-passport"></i> Passport Verification</a>
@@ -69,7 +52,7 @@
           </div>
         </li>
 
-        <!-- Products Dropdown -->
+        <!-- PRODUCTS -->
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Products <span class="dropdown-arrow">▾</span>
@@ -82,7 +65,7 @@
           </ul>
         </li>
 
-        <!-- INDUSTRY Dropdown -->
+        <!-- INDUSTRY -->
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Industry <span class="dropdown-arrow">▾</span>
@@ -103,7 +86,7 @@
           </ul>
         </li>
 
-        <!-- RESOURCES Dropdown -->
+        <!-- RESOURCES -->
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Resources <span class="dropdown-arrow">▾</span>
@@ -117,7 +100,7 @@
           </ul>
         </li>
 
-        <!-- COMPANY Dropdown -->
+        <!-- COMPANY -->
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Company <span class="dropdown-arrow">▾</span>
@@ -129,7 +112,7 @@
           </ul>
         </li>
 
-        <!-- HELP CENTER Dropdown -->
+        <!-- HELP CENTER -->
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Help Center <span class="dropdown-arrow">▾</span>
@@ -142,13 +125,7 @@
       </ul>
 
       <div class="d-flex align-items-center gap-3">
-        <!-- <a href="/helpcenter/support" class="btn-support" title="Support">
-          <i class="bi bi-headset"></i>
-        </a> -->
-      
-
-
-        <a href="https://web.verifitech.com/" target="_blank" class="btn-login">Login</a>
+        <a href="https://web.verifitech.com/" target="_blank" rel="noopener" class="btn-login">Login</a>
       </div>
 
       <div class="d-flex align-items-center">
@@ -171,26 +148,4 @@
       </div>
     </div>
   </div>
-  
-</nav>        
-    
-  <!-- FLOATING SUPPORT DASHBOARD -->
-<a
-  href="/helpcenter/support"
-  target="_blank"
-  class="support-dashboard-float"
-  aria-label="Support Dashboard"
->
-  <i class="bi bi-headset"></i>
-  <span class="float-tooltip">Support Dashboard</span>
-</a>
-
-<!-- FLOATING CALL BUTTON -->
-<a
-  href="tel:+919176663777"
-  class="call-float"
-  aria-label="Call Us"
->
-  <i class="bi bi-telephone-fill"></i>
-  <span class="float-tooltip">Call Us</span>
-</a>
+</nav>
