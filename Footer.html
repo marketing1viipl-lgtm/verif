@@ -1,0 +1,236 @@
+<!-- partials/footer.html : floating buttons + chat widget + cookie banner + footer -->
+
+<!-- Floating support & call buttons -->
+<a href="/helpcenter/support" target="_blank" rel="noopener" class="support-dashboard-float" aria-label="Support Dashboard">
+  <i class="bi bi-headset"></i>
+  <span class="float-tooltip">Support Dashboard</span>
+</a>
+<a href="tel:+919176663777" class="call-float" aria-label="Call Us">
+  <i class="bi bi-telephone-fill"></i>
+  <span class="float-tooltip">Call Us</span>
+</a>
+
+<!-- Chat widget -->
+<button class="chat-icon-btn" onclick="toggleChat()" id="chatIcon">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+  </svg>
+</button>
+
+<div class="chat-container" id="chatContainer">
+  <div class="chat-header">
+    <div class="header-left">
+      <div class="avatar">V</div>
+      <div class="header-info">
+        <h3>Verifitech Assistant</h3>
+        <span><span class="online-dot"></span> Online</span>
+      </div>
+    </div>
+    <button class="close-btn" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="message" id="welcomeMessage">
+      <div class="message-avatar">V</div>
+      <div class="message-content">
+        <div class="message-text">👋 Hi there! I'm <strong>Verifitech Chat Assistant</strong>, How May Help You.</div>
+      </div>
+    </div>
+  </div>
+  <div class="input-form" id="inputForm">
+    <input type="text" class="input-field" id="messageInput" placeholder="Type a message..." disabled>
+    <button class="send-btn" id="sendBtn" onclick="handleSend()" disabled>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- Cookie consent -->
+<div class="cookie-float-icon" onclick="openCookieBanner()" title="Manage Cookie Preferences">
+  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; display: block;">
+    <circle cx="32" cy="32" r="26" stroke="#1ac2c1" stroke-width="3" fill="white"/>
+    <path d="M50 18 Q56 13 53 6 Q48 3 43 8" stroke="#1ac2c1" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="22" cy="24" r="4" fill="#1ac2c1"/>
+    <circle cx="42" cy="22" r="3.5" fill="#1ac2c1"/>
+    <circle cx="32" cy="38" r="4.5" fill="#1ac2c1"/>
+    <circle cx="20" cy="42" r="3" fill="#1ac2c1"/>
+    <circle cx="46" cy="44" r="3.5" fill="#1ac2c1"/>
+    <circle cx="36" cy="50" r="2.5" fill="#1ac2c1"/>
+  </svg>
+  <span class="cookie-tooltip">Cookie Settings</span>
+</div>
+
+<div class="cookie-overlay" id="cookieOverlay" onclick="closeCookieBanner()"></div>
+
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-header">
+    <div class="cookie-icon-large">🍪</div>
+    <div class="cookie-title-group">
+      <h3>We value your privacy</h3>
+      <p>Customize your cookie preferences</p>
+    </div>
+  </div>
+  <div class="cookie-body">
+    <p class="cookie-description">
+      We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
+      By clicking "Accept All", you consent to our use of cookies.
+      <a href="/Privacy-policy-pages/privacypolicy.html" target="_blank">Read our Cookie Policy</a>
+    </p>
+
+    <div id="cookieSimpleView">
+      <div class="cookie-footer" style="padding: 0; background: transparent; border: none;">
+        <button class="cookie-btn cookie-btn-primary" onclick="acceptAllCookies()"><i class="bi bi-check-lg"></i> Accept All</button>
+        <button class="cookie-btn cookie-btn-secondary" onclick="showCookiePreferences()"><i class="bi bi-sliders"></i> Customize</button>
+      </div>
+    </div>
+
+    <div class="cookie-preferences" id="cookiePreferences">
+      <div class="cookie-categories">
+        <div class="cookie-category disabled">
+          <div class="cookie-cat-info">
+            <div class="cookie-cat-icon">🔒</div>
+            <div class="cookie-cat-text"><h3>Necessary</h3><span>Essential for the website to function</span></div>
+          </div>
+          <div class="cookie-toggle active" style="opacity: 0.6;"><input type="checkbox" checked disabled></div>
+        </div>
+        <div class="cookie-category" onclick="toggleCookieCategory('analytics')">
+          <div class="cookie-cat-info">
+            <div class="cookie-cat-icon">📊</div>
+            <div class="cookie-cat-text"><h3>Analytics</h3><span>Helps us improve our website</span></div>
+          </div>
+          <div class="cookie-toggle" id="toggle-analytics"><input type="checkbox" id="checkbox-analytics"></div>
+        </div>
+        <div class="cookie-category" onclick="toggleCookieCategory('marketing')">
+          <div class="cookie-cat-info">
+            <div class="cookie-cat-icon">🎯</div>
+            <div class="cookie-cat-text"><h3>Marketing</h3><span>Used to deliver personalized advertisements</span></div>
+          </div>
+          <div class="cookie-toggle" id="toggle-marketing"><input type="checkbox" id="checkbox-marketing"></div>
+        </div>
+        <div class="cookie-category" onclick="toggleCookieCategory('functionality')">
+          <div class="cookie-cat-info">
+            <div class="cookie-cat-icon">⚙️</div>
+            <div class="cookie-cat-text"><h3>Functionality</h3><span>Enables enhanced functionality</span></div>
+          </div>
+          <div class="cookie-toggle" id="toggle-functionality"><input type="checkbox" id="checkbox-functionality"></div>
+        </div>
+      </div>
+      <div class="cookie-footer" style="padding: 0; background: transparent; border: none;">
+        <button class="cookie-btn cookie-btn-primary" onclick="saveCookiePreferences()"><i class="bi bi-check-lg"></i> Save Preferences</button>
+        <button class="cookie-btn cookie-btn-secondary" onclick="acceptAllCookies()">Accept All</button>
+        <button class="cookie-btn cookie-btn-text" onclick="hideCookiePreferences()">Back to Simple View</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="newsletter-footer-section">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center gap-3 newsletter-header-content">
+            <div class="newsletter-icon-footer"><i class="bi bi-envelope-open"></i></div>
+            <div class="newsletter-text-content">
+              <h2 class="newsletter-title">Stay Updated</h2>
+              <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <form
+            action="https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit"
+            name="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data"
+            id="form" class="newsletter-form-footer">
+            <input type="hidden" name="zf_referrer_name" value="">
+            <input type="hidden" name="zf_redirect_url" value="">
+            <input type="hidden" name="zc_gad" value="">
+            <div class="input-group-wrapper">
+              <div class="zf-tempContDiv">
+                <input type="text" name="Email" checktype="c5" value="" maxlength="255" fieldType="9"
+                  placeholder="Enter your work email" class="newsletter-input" id="Email" />
+                <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+              </div>
+              <button type="submit" class="newsletter-btn zf-submitColor">Subscribe <i class="bi bi-arrow-right"></i></button>
+            </div>
+            <p class="newsletter-disclaimer"><i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row footer-main-content">
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="footer-brand">
+          <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech - Background Verification & Employee Screening Services"
+            title="Verifitech - Enterprise Background Verification Solutions" class="footer-logo" />
+        </div>
+        <p class="footer-description">
+          India's most trusted employment verification platform with direct HR database integration and EPFO validation across 19,000+ companies.
+        </p>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <div class="footer-column">
+          <h2 class="footer-heading">Solutions</h2>
+          <ul class="footer-links">
+            <li><a href="/checks/employment">Employment Check</a></li>
+            <li><a href="/checks/education-check">Education Verification</a></li>
+            <li><a href="/checks/reference">Reference Checks</a></li>
+            <li><a href="/checks/gap-verification">Gap Analysis</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h2 class="footer-heading">Company</h2>
+        <ul class="footer-links">
+          <li><a href="/company/aboutus">About Us</a></li>
+          <li><a href="/company/partnership">Partnership</a></li>
+          <li><a href="/company/careers">Careers</a></li>
+          <li><a href="/contact/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h2 class="footer-heading">Resources</h2>
+        <ul class="footer-links">
+          <li><a href="/resources/blog">Blog</a></li>
+          <li><a href="/resources/casestudy">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h2 class="footer-heading">Our policy</h2>
+        <ul class="footer-links">
+          <li><a href="/Privacy-policy-pages/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/Privacy-policy-pages/terms-and-conditions.html">Terms of Service</a></li>
+          <li><a href="/Privacy-policy-pages/privacypolicy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="copyright">© <span id="footer-year">2026</span> Verifitech Private Limited. All rights reserved.</p>
+        </div>
+        <div class="col-md-6">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/company/verifitech/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit Verifitech on LinkedIn" title="Verifitech on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/VerifiTechInfo/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit Verifitech on Facebook" title="Verifitech on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="https://m.youtube.com/@verifitechindia4689" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit Verifitech on YouTube" title="Verifitech on YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/verifitech/reels/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit Verifitech on Instagram" title="Verifitech on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="https://wa.me/919176663777" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Chat with Verifitech on WhatsApp" title="Chat with Verifitech on WhatsApp" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
